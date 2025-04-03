@@ -1,0 +1,35 @@
+{
+  "autoRefresh": {
+    "enabled": false
+  },
+  "baseQueries": [],
+  "tiles": [],
+  "dataSources": [],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "18d862fc-14d9-42e5-9452-d60343e11408"
+    }
+  ],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "49f2f7f8-1f54-4b29-b816-8d36ad4548f3",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "queries": [],
+  "schema_version": "61",
+  "title": "TestRealTimeDashboard"
+}
