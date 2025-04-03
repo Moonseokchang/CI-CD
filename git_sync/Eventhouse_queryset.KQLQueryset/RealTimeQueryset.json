@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "7bc71d10-d03e-44be-9ed7-f3bad92060b0",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "ce755aab-9ab3-bc44-4ed0-5da30ae10342",
+        "databaseItemName": "Eventhouse"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "a26e6abf-a6d1-410a-9e21-1de9527a76e3",
+        "content": ".create table TempCopiedTable (\n    type:string,\n    siteId:string,\n    version:string,\n    oem:string,\n    sendTimestamp:string,\n    site: dynamic ,\n    devices:dynamic ,\n    EventProcessedUtcTime:datetime ,\n    PartitionId:long ,\n    EventEnqueuedUtcTime: datetime\n    )",
+        "title": "Tab",
+        "dataSourceId": "7bc71d10-d03e-44be-9ed7-f3bad92060b0"
+      }
+    ]
+  }
+}

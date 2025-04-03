@@ -1,0 +1,727 @@
+{
+  "sources": [
+    {
+      "id": "98bcc4ba-2df4-4ef1-952b-f219894449b2",
+      "name": "new-source",
+      "type": "AzureEventHub",
+      "properties": {
+        "dataConnectionId": "c65e35d9-71de-41a6-be9c-de89141bfde5",
+        "consumerGroupName": "data-test",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      }
+    }
+  ],
+  "destinations": [
+    {
+      "id": "a44fa882-23d4-4f2e-a9c6-45240b49080e",
+      "name": "eventhouse-telemetry-data",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "ce755aab-9ab3-bc44-4ed0-5da30ae10342",
+        "databaseName": "Eventhouse",
+        "tableName": "TempbronzeRawCommonData",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "ManageFields"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "ManageFields",
+          "schema": {
+            "columns": [
+              {
+                "name": "version",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "siteId",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "sendTimestamp",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "oem",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "site",
+                "type": "Record",
+                "fields": [
+                  {
+                    "name": "assetId",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "sourceTimestamp",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "points",
+                    "type": "Record",
+                    "fields": [
+                      {
+                        "name": "pv_200_W",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "pv_200_IncWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "pv_200_DailyWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_W",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_IncWhImp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_IncWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_DailyWhImp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_DailyWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_713_SoC",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_713_SoH",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      }
+                    ],
+                    "items": null
+                  }
+                ],
+                "items": null
+              },
+              {
+                "name": "devices",
+                "type": "Array",
+                "fields": null,
+                "items": {
+                  "name": null,
+                  "type": "Record",
+                  "fields": [
+                    {
+                      "name": "assetId",
+                      "type": "Nvarchar(max)",
+                      "fields": null,
+                      "items": null
+                    },
+                    {
+                      "name": "sourceTimestamp",
+                      "type": "Nvarchar(max)",
+                      "fields": null,
+                      "items": null
+                    },
+                    {
+                      "name": "points",
+                      "type": "Record",
+                      "fields": [
+                        {
+                          "name": "battery_713_SoC",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_LNV",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_Hz",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_IncDCWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_713_SoH",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_IncWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_W",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_DailyWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_DCW",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_DailyDCWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_IncDCWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_DailyDCWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_IncWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_DailyWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_Hz",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_W",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_LNV",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        }
+                      ],
+                      "items": null
+                    }
+                  ],
+                  "items": null
+                }
+              },
+              {
+                "name": "EventProcessedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "PartitionId",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventEnqueuedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "1528586d-ad26-454e-831d-bbd910f586cb",
+      "name": "TestEventStream-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "new-source"
+        }
+      ]
+    }
+  ],
+  "operators": [
+    {
+      "name": "ManageFields",
+      "type": "ManageFields",
+      "inputNodes": [
+        {
+          "name": "TestEventStream-stream"
+        }
+      ],
+      "properties": {
+        "columns": [
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "version",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "version"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "siteId",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "siteId"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "sendTimestamp",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "sendTimestamp"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "oem",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "oem"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "site",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "site"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "devices",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "devices"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "EventProcessedUtcTime",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "EventProcessedUtcTime"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "PartitionId",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "PartitionId"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "EventEnqueuedUtcTime",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "EventEnqueuedUtcTime"
+          }
+        ]
+      },
+      "inputSchemas": [
+        {
+          "name": "TestEventStream-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "type",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "version",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "siteId",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "sendTimestamp",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "oem",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "site",
+                "type": "Record",
+                "fields": [
+                  {
+                    "name": "assetId",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "sourceTimestamp",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "points",
+                    "type": "Record",
+                    "fields": [
+                      {
+                        "name": "pv_200_W",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "pv_200_IncWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "pv_200_DailyWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_W",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_IncWhImp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_IncWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_DailyWhImp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_200_DailyWhExp",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_713_SoC",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      },
+                      {
+                        "name": "battery_713_SoH",
+                        "type": "BigInt",
+                        "fields": null,
+                        "items": null
+                      }
+                    ],
+                    "items": null
+                  }
+                ],
+                "items": null
+              },
+              {
+                "name": "devices",
+                "type": "Array",
+                "fields": null,
+                "items": {
+                  "name": null,
+                  "type": "Record",
+                  "fields": [
+                    {
+                      "name": "assetId",
+                      "type": "Nvarchar(max)",
+                      "fields": null,
+                      "items": null
+                    },
+                    {
+                      "name": "sourceTimestamp",
+                      "type": "Nvarchar(max)",
+                      "fields": null,
+                      "items": null
+                    },
+                    {
+                      "name": "points",
+                      "type": "Record",
+                      "fields": [
+                        {
+                          "name": "battery_713_SoC",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_LNV",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_Hz",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_IncDCWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_713_SoH",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_IncWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_W",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "inverter_701_DailyWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_DCW",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_DailyDCWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_IncDCWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "battery_714_DailyDCWhAbs",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_IncWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_DailyWhInj",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_Hz",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_W",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        },
+                        {
+                          "name": "pv_701_LNV",
+                          "type": "BigInt",
+                          "fields": null,
+                          "items": null
+                        }
+                      ],
+                      "items": null
+                    }
+                  ],
+                  "items": null
+                }
+              },
+              {
+                "name": "EventProcessedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "PartitionId",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventEnqueuedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "compatibilityLevel": "1.0"
+}

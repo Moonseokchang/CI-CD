@@ -1,0 +1,78 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "KustoDatabaseSource",
+            "query": "TempbronzeRawCommonData",
+            "noTruncation": true,
+            "queryTimeout": "01:00:00",
+            "datasetSettings": {
+              "type": "KustoDatabaseTable",
+              "typeProperties": {
+                "table": "TempbronzeRawCommonData"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Eventhouse",
+                "properties": {
+                  "type": "KustoDatabase",
+                  "typeProperties": {
+                    "endpoint": "https://trd-9au3w2hptuwkmrshr4.z3.kusto.fabric.microsoft.com",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "database": "ce755aab-9ab3-bc44-4ed0-5da30ae10342"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "KustoDatabaseSink",
+            "datasetSettings": {
+              "type": "KustoDatabaseTable",
+              "typeProperties": {
+                "table": "TempCopiedTable"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Eventhouse",
+                "properties": {
+                  "type": "KustoDatabase",
+                  "typeProperties": {
+                    "endpoint": "https://trd-9au3w2hptuwkmrshr4.z3.kusto.fabric.microsoft.com",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "database": "ce755aab-9ab3-bc44-4ed0-5da30ae10342"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy data",
+        "dependsOn": []
+      }
+    ]
+  }
+}
