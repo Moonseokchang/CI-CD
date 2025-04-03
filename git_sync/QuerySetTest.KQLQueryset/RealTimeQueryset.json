@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "cf9edda0-1333-4d07-824d-ec9f709e3fad",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "ce755aab-9ab3-bc44-4ed0-5da30ae10342",
+        "databaseItemName": "Eventhouse"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "3b9a6dd0-5ef1-4401-85e2-c0aa3b5d106d",
+        "content": "TempbronzeRawCommonData | take 100",
+        "title": "",
+        "dataSourceId": "cf9edda0-1333-4d07-824d-ec9f709e3fad"
+      }
+    ]
+  }
+}
